@@ -1,7 +1,9 @@
-/****** Script for SelectTopNRows command from SSMS  ******/
-SELECT 
-      c.[Name] AS category
-      ,p.Title AS product
-  FROM Categories c
-  LEFT JOIN Products p
-  ON (p.CategoryID = c.ID)
+  SELECT 
+	p.Name 'Product', 
+	c.Name 'Category'
+
+FROM Products p
+LEFT JOIN ProductCategories pc
+	ON p.Id = pc.ProductId
+LEFT JOIN Categories c
+	ON pc.CategoryId = c.Id
